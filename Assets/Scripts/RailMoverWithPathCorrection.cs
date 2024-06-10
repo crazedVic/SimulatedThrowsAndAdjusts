@@ -4,7 +4,7 @@ public class RailMoverWithPathCorrection : MonoBehaviour
 {
     public WaypointsGenerator waypointManager; // Reference to the WaypointsGenerator script
     private float baseSpeed = 3.6f; // Base speed of the ball along the path
-    private float speedIncrement = 1.7f; // Speed increment per waypoint
+    private float speedIncrement = 1.5f; // Speed increment per waypoint
 
     private Rigidbody rb;
     private int currentWaypointIndex = 0;
@@ -18,17 +18,9 @@ public class RailMoverWithPathCorrection : MonoBehaviour
         // Rotate waypoints and get the rotated waypoints from the WaypointsGenerator
         if (waypointManager != null)
         {
-            waypointManager.RotateWaypoints(new Vector3(0, 0, 3));
+            waypointManager.RotateWaypoints(new Vector3(2f, 0f, 0));
             waypoints = waypointManager.rotatedWaypoints;
-
-            // Log the waypoints for debugging
-            if (waypoints != null)
-            {
-                for (int i = 0; i < waypoints.Length; i++)
-                {
-                    Debug.Log($"Waypoint {i}: {waypoints[i]}");
-                }
-            }
+            Debug.Log(waypoints.Length);
         }
 
         // Start the ball movement along the waypoints
@@ -70,13 +62,17 @@ public class RailMoverWithPathCorrection : MonoBehaviour
             rb.velocity = baseVelocity;
 
             // Check if we reached the waypoint
-            if (Vector3.Distance(currentPosition, targetPosition) < 0.1f)
+            if (Vector3.Distance(currentPosition, targetPosition) < 0.3f)
             {
                 currentWaypointIndex++;
+                Debug.Log(currentWaypointIndex);
                 if (currentWaypointIndex >= waypoints.Length - 1)
                 {
                     rb.velocity = Vector3.zero; // Stop movement at the end of the rail
+                    Debug.Log("done");
+                    gameObject.SetActive(false);
                 }
+                
             }
         }
     }

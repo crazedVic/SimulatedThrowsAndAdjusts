@@ -16,19 +16,19 @@ public class WaypointsGenerator : MonoBehaviour
 
         // Calculate the current final direction
         Vector3 currentFinalDirection = waypoints[waypoints.Length - 1] - waypoints[0];
-        Debug.Log($"Current final direction: {currentFinalDirection}");
+
 
         // Calculate the new final position
         Vector3 newFinalPosition = waypoints[waypoints.Length - 1] + offset;
-        Debug.Log($"New final position: {newFinalPosition}");
+
 
         // Calculate the new final direction
         Vector3 newFinalDirection = newFinalPosition - waypoints[0];
-        Debug.Log($"New final direction: {newFinalDirection}");
+
 
         // Calculate the rotation required to align the current final direction with the new final direction
         Quaternion rotation = Quaternion.FromToRotation(currentFinalDirection, newFinalDirection);
-        Debug.Log($"Calculated rotation: {rotation.eulerAngles}");
+
 
         // Apply the rotation to all waypoints
         rotatedWaypoints = new Vector3[waypoints.Length];
@@ -39,11 +39,8 @@ public class WaypointsGenerator : MonoBehaviour
             rotatedWaypoints[i] = waypoints[0] + rotatedDirection;
         }
 
-        // Log the rotated waypoints for debugging
-        for (int i = 0; i < rotatedWaypoints.Length; i++)
-        {
-            Debug.Log($"Rotated waypoint {i}: {rotatedWaypoints[i]}");
-        }
+        Debug.Log(rotatedWaypoints.Length);
+
     }
 
     void OnDrawGizmos()

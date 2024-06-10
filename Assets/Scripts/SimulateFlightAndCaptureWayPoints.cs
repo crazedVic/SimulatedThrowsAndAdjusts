@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SimulateFlightAndCaptureWaypoints : MonoBehaviour
 {
-    public Vector3 initialForce = new Vector3(0, 9, 6); // Initial force to be applied
-    public float captureInterval = 0.1f; // Time interval to capture waypoints
+    private Vector3 initialForce = new Vector3(0, 9, 6); // Initial force to be applied
+    private float captureInterval = 0.05f; // Time interval to capture waypoints
     private List<Vector3> capturedWaypoints = new List<Vector3>();
     private Rigidbody rb;
     private float timeSinceLastCapture = 0f;
@@ -66,6 +66,7 @@ public class SimulateFlightAndCaptureWaypoints : MonoBehaviour
                 // Optionally, deactivate this script and activate the RailMoverWithPathCorrection script
                 this.enabled = false;
                 pathSphere.SetActive(true);
+                gameObject.SetActive(false);
 
                 Debug.Log("Waypoints captured: " + capturedWaypoints.Count);
             }
