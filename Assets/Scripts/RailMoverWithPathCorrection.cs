@@ -18,7 +18,7 @@ public class RailMoverWithPathCorrection : MonoBehaviour
         // Rotate waypoints and get the rotated waypoints from the WaypointsGenerator
         if (waypointManager != null)
         {
-            waypointManager.RotateWaypoints(new Vector3(2f, 0f, 0));
+            waypointManager.RotateAndStretchWaypoints(new Vector3(0f, 0f, 2f));
             waypoints = waypointManager.rotatedWaypoints;
             Debug.Log(waypoints.Length);
         }

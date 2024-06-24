@@ -444,9 +444,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointManager: {fileID: 268252579}
-  baseSpeed: 5
-  gravityEffect: 9.81
-  dragEffect: 0.1
 --- !u!54 &390201618
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -783,7 +780,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1989621997}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 7794cc42dcb770648bada5f6005eba81, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -876,8 +873,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae522ed7361d64840bac3aa4532be3d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialForce: {x: 0, y: 7, z: 6}
-  captureInterval: 0.1
   pathSphere: {fileID: 390201615}
   waypointManager: {fileID: 268252578}
 --- !u!1660057539 &9223372036854775807

@@ -66,7 +66,7 @@ public class SimulateFlightAndCaptureWaypoints : MonoBehaviour
                 // Optionally, deactivate this script and activate the RailMoverWithPathCorrection script
                 this.enabled = false;
                 pathSphere.SetActive(true);
-                gameObject.SetActive(false);
+                //gameObject.SetActive(false);
 
                 Debug.Log("Waypoints captured: " + capturedWaypoints.Count);
             }
