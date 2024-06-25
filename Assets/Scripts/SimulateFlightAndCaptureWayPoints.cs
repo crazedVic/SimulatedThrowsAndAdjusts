@@ -62,7 +62,7 @@ public class SimulateFlightAndCaptureWaypoints : MonoBehaviour
             if (targetHit) //(transform.position.y <= -0.01f)
             {
                 capturing = false;
-
+                capturedWaypoints.Add(transform.position);
                 // Save captured waypoints to WaypointsGenerator
                 WaypointsGenerator waypointsGenerator = waypointManager.GetComponent<WaypointsGenerator>();
                 waypointsGenerator.waypoints = capturedWaypoints.ToArray();
@@ -81,6 +81,7 @@ public class SimulateFlightAndCaptureWaypoints : MonoBehaviour
                 Debug.Log("Waypoints captured: " + capturedWaypoints.Count);
             }
         }
+
     }
 
     void OnDrawGizmos()

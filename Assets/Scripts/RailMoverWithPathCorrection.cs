@@ -22,7 +22,7 @@ public class RailMoverWithPathCorrection : MonoBehaviour
             Vector3 offset = bullseye.transform.position - target.transform.position;
             waypointManager.RotateAndStretchWaypoints(offset);// (new Vector3(0f, 3f, 2f));
             waypoints = waypointManager.rotatedWaypoints;
-            Debug.Log(waypoints.Length);
+            Debug.Log($" wayptoins along rail {waypoints.Length}");
         }
 
         // Start the ball movement along the waypoints
@@ -67,7 +67,7 @@ public class RailMoverWithPathCorrection : MonoBehaviour
             if (Vector3.Distance(currentPosition, targetPosition) < 0.3f)
             {
                 currentWaypointIndex++;
-                Debug.Log(currentWaypointIndex);
+               // Debug.Log(currentWaypointIndex);
                 if (currentWaypointIndex >= waypoints.Length - 1)
                 {
                     rb.velocity = Vector3.zero; // Stop movement at the end of the rail

@@ -81,8 +81,6 @@ public class WaypointsGenerator : MonoBehaviour
             // Translate back to the new start position
             rotatedWaypoints[i] = waypoints[0] + rotatedDirection;
         }
-
-        Debug.Log(rotatedWaypoints.Length);
     }
 
 
