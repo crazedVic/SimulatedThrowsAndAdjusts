@@ -9,6 +9,7 @@ public class SimulateFlightAndCaptureWaypoints : MonoBehaviour
     private List<Vector3> capturedWaypoints = new List<Vector3>();
     private Rigidbody rb;
     private float timeSinceLastCapture = 0f;
+    private bool targetHit = false;
     private bool capturing = false;
     public GameObject pathSphere; // Reference to the sphere that will follow the path
     public GameObject waypointManager; // Reference to the WaypointsManager GameObject
@@ -25,6 +26,15 @@ public class SimulateFlightAndCaptureWaypoints : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && !capturing)
         {
             ApplyInitialForce();
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.gameObject.tag);
+        if(collision.gameObject.tag == "Target")
+        {
+            targetHit = true;
         }
     }
 
@@ -49,7 +59,7 @@ public class SimulateFlightAndCaptureWaypoints : MonoBehaviour
             }
 
             // Check if the ball has hit the ground, and allow a small threshold
-            if (transform.position.y <= -0.01f)
+            if (targetHit) //(transform.position.y <= -0.01f)
             {
                 capturing = false;
 
