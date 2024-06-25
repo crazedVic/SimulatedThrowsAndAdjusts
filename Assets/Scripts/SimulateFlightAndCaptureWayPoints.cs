@@ -31,7 +31,6 @@ public class SimulateFlightAndCaptureWaypoints : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.tag);
         if(collision.gameObject.tag == "Target")
         {
             targetHit = true;
@@ -64,8 +63,10 @@ public class SimulateFlightAndCaptureWaypoints : MonoBehaviour
                 capturing = false;
                 capturedWaypoints.Add(transform.position);
                 // Save captured waypoints to WaypointsGenerator
+
                 WaypointsGenerator waypointsGenerator = waypointManager.GetComponent<WaypointsGenerator>();
                 waypointsGenerator.waypoints = capturedWaypoints.ToArray();
+
 
                 // Reset ball state
                 rb.velocity = Vector3.zero;
@@ -78,7 +79,7 @@ public class SimulateFlightAndCaptureWaypoints : MonoBehaviour
                 pathSphere.SetActive(true);
                 //gameObject.SetActive(false);
 
-                Debug.Log("Waypoints captured: " + capturedWaypoints.Count);
+                //Debug.Log("Waypoints captured: " + capturedWaypoints.Count);
             }
         }
 

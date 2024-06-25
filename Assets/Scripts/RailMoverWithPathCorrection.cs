@@ -4,7 +4,7 @@ public class RailMoverWithPathCorrection : MonoBehaviour
 {
     public WaypointsGenerator waypointManager; // Reference to the WaypointsGenerator script
     private float baseSpeed = 3.6f; // Base speed of the ball along the path
-    private float speedIncrement = 1.5f; // Speed increment per waypoint
+    private float speedIncrement = 1.0f; // Speed increment per waypoint
     public Collider target;
     public Collider bullseye;
     private Rigidbody rb;
@@ -19,10 +19,18 @@ public class RailMoverWithPathCorrection : MonoBehaviour
         // Rotate waypoints and get the rotated waypoints from the WaypointsGenerator
         if (waypointManager != null)
         {
+
             Vector3 offset = bullseye.transform.position - target.transform.position;
             waypointManager.RotateAndStretchWaypoints(offset);// (new Vector3(0f, 3f, 2f));
             waypoints = waypointManager.rotatedWaypoints;
-            Debug.Log($" wayptoins along rail {waypoints.Length}");
+            Debug.Log(waypoints[waypoints.Length - 1]);
+
+            waypointManager.RotateAndStretchWaypoints(offset, 0.2f);// (new Vector3(0f, 3f, 2f));
+            waypoints = waypointManager.rotatedWaypoints;
+            Debug.Log(waypoints[waypoints.Length - 1]);
+
+
+            // Debug.Log($" waypoints along rail {waypoints.Length}");
         }
 
         // Start the ball movement along the waypoints
@@ -71,7 +79,7 @@ public class RailMoverWithPathCorrection : MonoBehaviour
                 if (currentWaypointIndex >= waypoints.Length - 1)
                 {
                     rb.velocity = Vector3.zero; // Stop movement at the end of the rail
-                    Debug.Log("done");
+                  //  Debug.Log("done");
                     gameObject.SetActive(false);
                 }
                 
