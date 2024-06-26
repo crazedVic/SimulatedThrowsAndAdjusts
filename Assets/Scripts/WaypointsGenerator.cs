@@ -4,6 +4,7 @@ public class WaypointsGenerator : MonoBehaviour
 {
     public Vector3[] waypoints;
     public Vector3[] rotatedWaypoints;
+    public Vector3 targetHitpoint; // need to know where the ball hit the target exactly to calculate the offset
 
     // Method to get rotated waypoints based on an offset
     public void RotateWaypoints(Vector3 offset)

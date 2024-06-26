@@ -20,7 +20,7 @@ public class RailMoverWithPathCorrection : MonoBehaviour
         if (waypointManager != null)
         {
 
-            Vector3 offset = bullseye.transform.position - target.transform.position;
+            Vector3 offset = bullseye.transform.position - waypointManager.targetHitpoint;
             waypointManager.RotateAndStretchWaypoints(offset);// (new Vector3(0f, 3f, 2f));
             waypoints = waypointManager.rotatedWaypoints;
             Debug.Log(waypoints[waypoints.Length - 1]);

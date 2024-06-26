@@ -13,11 +13,13 @@ public class SimulateFlightAndCaptureWaypoints : MonoBehaviour
     private bool capturing = false;
     public GameObject pathSphere; // Reference to the sphere that will follow the path
     public GameObject waypointManager; // Reference to the WaypointsManager GameObject
+    private WaypointsGenerator waypointsGenerator;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false; // Disable gravity initially
+        waypointsGenerator = waypointManager.GetComponent<WaypointsGenerator>();
     }
 
     void Update()
@@ -34,6 +36,8 @@ public class SimulateFlightAndCaptureWaypoints : MonoBehaviour
         if(collision.gameObject.tag == "Target")
         {
             targetHit = true;
+            waypointsGenerator.targetHitpoint = collision.GetContact(0).point;
+            
         }
     }
 
@@ -64,7 +68,7 @@ public class SimulateFlightAndCaptureWaypoints : MonoBehaviour
                 capturedWaypoints.Add(transform.position);
                 // Save captured waypoints to WaypointsGenerator
 
-                WaypointsGenerator waypointsGenerator = waypointManager.GetComponent<WaypointsGenerator>();
+                
                 waypointsGenerator.waypoints = capturedWaypoints.ToArray();
 
 
