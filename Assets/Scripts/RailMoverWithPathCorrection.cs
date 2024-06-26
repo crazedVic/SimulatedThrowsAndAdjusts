@@ -3,8 +3,8 @@ using UnityEngine;
 public class RailMoverWithPathCorrection : MonoBehaviour
 {
     public WaypointsGenerator waypointManager; // Reference to the WaypointsGenerator script
-    private float baseSpeed = 3.6f; // Base speed of the ball along the path
-    private float speedIncrement = 1.0f; // Speed increment per waypoint
+    private float baseSpeed = 2.6f; // Base speed of the ball along the path
+    private float speedIncrement = 5.0f; // Speed increment per waypoint
     public Collider target;
     public Collider bullseye;
     private Rigidbody rb;
@@ -21,13 +21,11 @@ public class RailMoverWithPathCorrection : MonoBehaviour
         {
 
             Vector3 offset = bullseye.transform.position - waypointManager.targetHitpoint;
-            waypointManager.RotateAndStretchWaypoints(offset);// (new Vector3(0f, 3f, 2f));
-            waypoints = waypointManager.rotatedWaypoints;
-            Debug.Log(waypoints[waypoints.Length - 1]);
-
+          /*  waypointManager.RotateAndStretchWaypoints(offset);// (new Vector3(0f, 3f, 2f));
+            waypoints = waypointManager.rotatedWaypoints;*/
+            
             waypointManager.RotateAndStretchWaypoints(offset, 0.2f);// (new Vector3(0f, 3f, 2f));
             waypoints = waypointManager.rotatedWaypoints;
-            Debug.Log(waypoints[waypoints.Length - 1]);
 
 
             // Debug.Log($" waypoints along rail {waypoints.Length}");
@@ -72,7 +70,7 @@ public class RailMoverWithPathCorrection : MonoBehaviour
             rb.velocity = baseVelocity;
 
             // Check if we reached the waypoint
-            if (Vector3.Distance(currentPosition, targetPosition) < 0.3f)
+            if (Vector3.Distance(currentPosition, targetPosition) < 0.6f)
             {
                 currentWaypointIndex++;
                // Debug.Log(currentWaypointIndex);

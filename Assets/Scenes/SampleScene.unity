@@ -258,6 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints: []
   rotatedWaypoints: []
+  targetHitpoint: {x: 0, y: 0, z: 0}
 --- !u!4 &268252580
 Transform:
   m_ObjectHideFlags: 0
@@ -828,8 +829,8 @@ Transform:
   m_GameObject: {fileID: 995862492}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.44, y: 1.43, z: 11.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -5.06, y: 1.43, z: 11.5}
+  m_LocalScale: {x: 0.23986, y: 0.23986, z: 0.23986}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -935,8 +936,8 @@ Transform:
   m_GameObject: {fileID: 1548604884}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: 2.3417034, z: 9.036352}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.66, y: 2.3417034, z: 9.036352}
+  m_LocalScale: {x: 3.9856, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1043,8 +1044,8 @@ Transform:
   m_GameObject: {fileID: 1838585560}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4799, y: 2.3, z: 9.9188}
-  m_LocalScale: {x: 16.377539, y: 5.2340875, z: 20.699303}
+  m_LocalPosition: {x: 1.4799, y: 2.3, z: 4.0743}
+  m_LocalScale: {x: 16.377539, y: 5.2340875, z: 6.0417805}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1061,8 +1062,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a50560cbbd9cb41a9dc4281e95259c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windForce: 10
-  windDirection: {x: 1, y: 0, z: 0}
+  windForce: 42.4
+  windDirection: 0
 --- !u!1 &1989621997
 GameObject:
   m_ObjectHideFlags: 0
@@ -1079,7 +1080,7 @@ GameObject:
   - component: {fileID: 1989622004}
   m_Layer: 0
   m_Name: MapSphere
-  m_TagString: Untagged
+  m_TagString: Mapper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Target
   - Bullseye
+  - Mapper
+  - Follower
   layers:
   - Default
   - TransparentFX
